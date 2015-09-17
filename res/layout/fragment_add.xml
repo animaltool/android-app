@@ -1,0 +1,579 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+<!--
+##########################################################################
+#  Copyright notice
+#
+#  (c) 2015 [d] Ligo design+development - All rights reserved
+#  (Details on https://github.com/animaltool)
+#
+#  This script belongs to the TYPO3 Flow package "DLigo.Animaltool".
+#  The DLigo Animaltool project is free software; you can redistribute
+#  it and/or modify it under the terms of the GNU Lesser General Public
+#  License (GPL) as published by the Free Software Foundation; either
+#  version 3 of the License, or  (at your option) any later version.
+#
+#  The GNU General Public License can be found at
+#  http://www.gnu.org/copyleft/gpl.html.
+#
+#  This script is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  This copyright notice MUST APPEAR in all copies of the script!
+##########################################################################
+-->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            tools:context="com.dligo.animaltool.AddActivity$PlaceholderFragment" >
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="200dp"
+                android:layout_height="180dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/photo_descr"
+                android:src="@drawable/ic_cam"
+                android:tag="photo:image" />
+
+            <TextView
+                android:id="@+id/box_id_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/box_id"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/photo"
+                android:text="@string/box_id_title" />
+
+            <TextView
+                android:id="@+id/box_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/box_id_title"
+                android:tag="action:boxID"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/species_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sel_species"
+                android:layout_marginRight="5dp"
+                android:text="@string/species_title" />
+
+            <com.dligo.animaltool.NoDefaultSpinner
+                android:id="@+id/sel_species"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/photo"
+                android:layout_toRightOf="@+id/species_title"
+                android:prompt="@string/spinner_prompt"
+                android:tag="animal:species" />
+
+            <TextView
+                android:id="@+id/bread_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sel_bread"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dp"
+                android:text="@string/bread_title" />
+
+            <com.dligo.animaltool.NoDefaultSpinner
+                android:id="@+id/sel_bread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/sel_species"
+                android:layout_toRightOf="@+id/bread_title"
+                android:prompt="@string/spinner_prompt"
+                android:tag="animal:bread" />
+
+            <TextView
+                android:id="@+id/color_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sel_color"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dp"
+                android:text="@string/color_title" />
+
+            <com.dligo.animaltool.NoDefaultSpinner
+                android:id="@+id/sel_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/sel_bread"
+                android:layout_toRightOf="@+id/bread_title"
+                android:prompt="@string/spinner_prompt"
+                android:tag="animal:color" />
+
+            <EditText
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/sel_color"
+                android:layout_toRightOf="@+id/birthday_title"
+                android:inputType="date"
+                android:tag="animal:birthday" />
+
+            <TextView
+                android:id="@+id/comment_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/comment"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dp"
+                android:labelFor="@+id/comment"
+                android:text="@string/comment_title" />
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/eartag"
+                android:layout_marginBottom="30dp"
+                android:layout_toRightOf="@+id/comment_title"
+                android:inputType="text|textMultiLine"
+                android:tag="animal:comment" />
+
+            <TextView
+                android:id="@+id/eartag_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/eartag"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dp"
+                android:labelFor="@+id/eartag"
+                android:text="@string/eartag_title" />
+
+            <EditText
+                android:id="@+id/eartag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/gender"
+                android:layout_toRightOf="@+id/eartag_title"
+                android:inputType="text"
+                android:tag="animal:earTag" />
+
+            <TextView
+                android:id="@+id/photo_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/photo"
+                android:layout_marginBottom="50dp"
+                android:layout_toRightOf="@+id/photo"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/gps_lat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gps_title"
+                android:layout_toRightOf="@+id/photo"
+                android:tag="action:lat"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/gps_lng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gps_lat"
+                android:layout_toRightOf="@+id/photo"
+                android:tag="action:lng"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/gps_online"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/gps_title"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/gps_title"
+                android:contentDescription="@string/gps_online_desc"
+                android:src="@drawable/ic_gps_bad"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/gps_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/gps_title"
+                android:layout_alignBottom="@+id/gps_title"
+                android:layout_toRightOf="@+id/gps_title"
+                android:text="@string/gps_error"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_add_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/comment"
+                android:onClick="clickAdd"
+                android:text="@string/btn_add" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" />
+
+            <TextView
+                android:id="@+id/gps_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/box_id"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/photo"
+                android:text="@string/gps_title" />
+
+            <com.dligo.animaltool.NoDefaultSpinner
+                android:id="@+id/gender"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/birthday"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/species_title"
+                android:prompt="@string/spinner_prompt"
+                android:tag="animal:gender" />
+
+            <TextView
+                android:id="@+id/gender_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/birthday_title"
+                android:layout_alignBottom="@+id/birthday_title"
+                android:layout_alignParentLeft="true"
+                android:labelFor="@+id/gender"
+                android:text="@string/gender_title" />
+
+            <TextView
+                android:id="@+id/birthday_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/birthday"
+                android:layout_toRightOf="@+id/gender"
+                android:labelFor="@+id/birthday"
+                android:text="@string/birthday_title" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp" >
+
+            <CheckBox
+                android:id="@+id/chk_private"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:tag="animal:isPrivate"
+                android:text="@string/chk_private" />
+
+            <RelativeLayout
+                android:id="@+id/owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chk_private"
+                android:visibility="invisible" >
+
+                <TextView
+                    android:id="@+id/firstname_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/firstname"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/firstname"
+                    android:text="@string/firstname_title" />
+
+                <EditText
+                    android:id="@+id/firstname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/firstname_title"
+                    android:inputType="textPersonName"
+                    android:tag="owner:firstName" />
+
+                <TextView
+                    android:id="@+id/lastname_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/lastname"
+                    android:layout_alignParentLeft="true"
+                    android:labelFor="@+id/lastname"
+                    android:text="@string/lastname_title" />
+
+                <EditText
+                    android:id="@+id/lastname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/firstname"
+                    android:layout_toRightOf="@+id/lastname_title"
+                    android:inputType="textPersonName"
+                    android:tag="owner:name" />
+
+                <TextView
+                    android:id="@+id/idnumber_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/idnumber"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/idnumber"
+                    android:text="@string/idnumber_title" />
+
+                <EditText
+                    android:id="@+id/idnumber"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/lastname"
+                    android:layout_toRightOf="@+id/idnumber_title"
+                    android:inputType="text"
+                    android:tag="owner:iDNumber"
+                    tools:ignore="TextFields" />
+
+                <TextView
+                    android:id="@+id/cnp_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/cnp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/cnp"
+                    android:text="@string/cnp_title" />
+
+                <EditText
+                    android:id="@+id/cnp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/idnumber"
+                    android:layout_toRightOf="@+id/cnp_title"
+                    android:inputType="number"
+                    android:tag="owner:cNP"
+                    tools:ignore="TextFields" />
+
+                <TextView
+                    android:id="@+id/phone_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/phone"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/phone"
+                    android:text="@string/phone_title" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/cnp"
+                    android:layout_toRightOf="@+id/phone_title"
+                    android:inputType="phone"
+                    android:tag="owner:phone" />
+
+                <TextView
+                    android:id="@+id/street_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/street"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/street"
+                    android:text="@string/street_title" />
+
+                <EditText
+                    android:id="@+id/street"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/phone"
+                    android:layout_toRightOf="@+id/street_title"
+                    android:inputType="text"
+                    android:tag="owner:street" />
+
+                <TextView
+                    android:id="@+id/housenumber_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/housenumber"
+                    android:layout_alignBottom="@+id/housenumber"
+                    android:text="@string/housenumber_title" />
+                
+                <EditText
+                    android:id="@+id/housenumber"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/street"
+                    android:layout_toRightOf="@+id/housenumber_title"
+                    android:inputType="text"
+                    android:tag="owner:houseNumber"
+                    tools:ignore="LabelFor,TextFields" />
+
+                <TextView
+                    android:id="@+id/zipcity_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/zip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/zip"
+                    android:text="@string/zipcity_title" />
+
+                <EditText
+                    android:id="@+id/zip"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/housenumber"
+                    android:layout_toRightOf="@+id/zipcity_title"
+                    android:inputType="text"
+                    android:tag="owner:zipCode" />
+
+                <EditText
+                    android:id="@+id/city"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/housenumber"
+                    android:layout_toRightOf="@+id/zip"
+                    android:inputType="text"
+                    android:tag="owner:city"
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:id="@+id/region_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/region"
+                    android:layout_alignParentLeft="true"
+                    android:labelFor="@+id/region"
+                    android:text="@string/region_title" />
+
+                <EditText
+                    android:id="@+id/region"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/zip"
+                    android:layout_toRightOf="@+id/region_title"
+                    android:inputType="text"
+                    android:tag="owner:region" />
+
+                <TextView
+                    android:id="@+id/country_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/country"
+                    android:layout_alignParentLeft="true"
+                    android:labelFor="@+id/country"
+                    android:text="@string/country_title" />
+
+                <EditText
+                    android:id="@+id/country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/region"
+                    android:layout_toRightOf="@+id/country_title"
+                    android:inputType="text"
+                    android:tag="owner:country" />
+
+                <TextView
+                    android:id="@+id/passId_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/passId"
+                    android:layout_alignParentLeft="true"
+                    android:labelFor="@+id/passId"
+                    android:text="@string/passId_title" />
+
+                <EditText
+                    android:id="@+id/passId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/country"
+                    android:layout_toRightOf="@+id/passId_title"
+                    android:tag="owner:passId" />
+                
+                <TextView
+                    android:id="@+id/ownercomment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ownercomment"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:labelFor="@+id/ownercomment"
+                    android:text="@string/owbercomment_title" />
+
+                <EditText
+                    android:id="@+id/ownercomment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/passId"
+                    android:layout_toRightOf="@+id/ownercomment_title"
+                    android:inputType="text|textMultiLine"
+                    android:tag="owner:comment" />
+
+                <Button
+                    android:id="@+id/fillast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/ownercomment"
+                    android:onClick="clickFill"
+                    android:text="@string/fill_last" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>
